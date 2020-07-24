@@ -1,0 +1,81 @@
+<div class="card" style="padding-top:60px">
+  <h5 class="card-header">Users List</h5>
+  <div class="card-body">
+    <div class="table-responsive">
+      <table class="table ">
+        <thead>
+          <tr>
+            <th scope="col">Sr.No.</th>
+            <th scope="col">User Name</th>
+            <th scope="col"> GitHub Profile</th>
+            <th scope="col">Avatar</th>
+            <th>Details</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let row of tableData; let i =index">
+            <th scope="row">{{i+1}}</th>
+            <td>{{row.login}}</td>
+            <td>
+              <a href="{{row.html_url}}" target="_blank">{{row.html_url}}</a>
+            </td>
+            <td>
+              <img src="{{row.avatar_url}}" class="img-thumbnail img-fluid" style="height: 80px;width: 80px;">
+            </td>
+
+            <td>
+              <button class="btn btn-info" (click)="details(row.login)">
+                Details
+
+              </button>
+
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
+<div class="modal fade" bsModal #detailsModal="bs-modal" tabindex="-1" role="dialog"
+  aria-labelledby="dialog-nested-name2" [config]="{backdrop: 'static'}">
+  <div class="modal-dialog  modal-lg">
+    <div class="modal-content">
+      <div div class="modal-header" style="padding: 8px; ">
+        <p style="padding: 10px;">Repository's of <strong>{{user}}</strong></p>
+        <a class="close pull-right" aria-label="Close" (click)="detailsModal.hide();">
+          <span style="cursor:pointer" aria-hidden="true">&times;</span>
+        </a>
+      </div>
+      <div class="modal-body">
+        <div class="card">
+          <h5 class="card-header">Users Repository's </h5>
+          <div class="card-body">
+            <div class="table-responsive">
+              <table class="table ">
+                <thead>
+                  <tr>
+                    <th scope="col">Sr.No.</th>
+                    <th scope="col">Repository Name</th>
+                    <th scope="col">Link oF Repository</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr *ngFor="let row of repoData; let i =index">
+                    <th scope="row">{{i+1}}</th>
+                    <td>{{row.name}}</td>
+                    <td>
+                      <a href="{{row.git_url}}" target="_blank">{{row.git_url}}</a>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-rounded btn-outline-primary" (click)="cancel()">Ok</button>
+      </div>
+    </div>
+  </div>
+</div>
