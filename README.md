@@ -31,8 +31,8 @@ To get more help on the Angular CLI use `ng help` or go check out the [Angular C
  Ngx-bootstrap
   
   ## Home Page 
-  ## Search User 
-  ## visuals of screen 
+  ## Search User screen 
   ![searchUserName](https://user-images.githubusercontent.com/36763574/88366336-84881f00-cda6-11ea-9312-71716a38e88a.PNG)
 
+# All User List
   
